@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rust Todo App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+   <header>
+        <h1>🦀 Rust Todo App</h1>
+        <p>Simple. Fast. Reliable. ⚡</p>
+    </header>
+
+    <div class="stats">
+        <span id="totalStats">0 Tasks</span>
+        <span id="completedStats">0 Completed</span>
+        <span id="remainingStats">0 Remaining</span>
+    </div>
+
+    <div class="progress-wrap">
+        <div id="progressBar"></div>
+    </div>
+
+    <section class="form-card">
+        <input id="title" placeholder="Title">
+        <input id="description" placeholder="Description">
+
+        <select id="priority">
+            <option value="low">Low</option>
+            <option value="medium" selected>Medium</option>
+            <option value="high">High</option>
+        </select>
+
+        <input id="category" placeholder="Category">
+
+        <button onclick="createTodo()">+ Add Todo</button>
+    </section>
+
+    <input id="searchInput" class="search" placeholder="🔍 Search todos..." oninput="loadTodos()">
+
+    <div class="filters">
+        <button onclick="setFilter('all')">All</button>
+        <button onclick="setFilter('active')">Active</button>
+        <button onclick="setFilter('completed')">Completed</button>
+    </div>
+
+    <section class="todo-header">
+        <h2>☷ Your Todos <span id="count">0</span></h2>
+    </section>
+
+    <div id="todoList"></div>
+
+    <div id="toast"></div>
+
+    <div id="editModal" class="modal hidden">
+        <div class="modal-card">
+            <h2>Edit Todo</h2>
+
+            <input id="editTitle" placeholder="Title">
+            <input id="editDescription" placeholder="Description">
+
+            <select id="editPriority">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+
+            <input id="editCategory" placeholder="Category">
+
+            <div class="modal-actions">
+                <button onclick="saveEdit()">Save</button>
+                <button class="delete-btn" onclick="closeEdit()">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
